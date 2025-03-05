@@ -13,7 +13,6 @@ const configFileContent = `{
 }`;
 
 const systemdFileContent = `[Unit]
-[Unit]
 Description=Cert Watcher Service
 After=network.target
 
