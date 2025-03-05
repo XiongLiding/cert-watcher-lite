@@ -70,7 +70,7 @@ const dirname = sea.isSea() ? path.dirname(process.execPath) : __dirname
     data = await checkAll(hosts)
     setInterval(async () => {
       data = await checkAll(hosts)
-    })
+    }, 3600000)
   }, 3600000 - offset)
 
   fastify.listen({
