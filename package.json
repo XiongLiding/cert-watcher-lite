@@ -1,6 +1,6 @@
 {
   "name": "cert-watcher-lite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "一个极简的网站安全证书过期监测工具",
   "main": "index.cts",
   "scripts": {

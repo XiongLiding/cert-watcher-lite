@@ -12,18 +12,16 @@ const configFileContent = `{
   }]
 }`;
 
-const systemdFileContent = `
+const systemdFileContent = `[Unit]
 [Unit]
 Description=Cert Watcher Service
 After=network.target
 
 [Service]
-Type=simple
-User=nobody
 Restart=on-failure
 RestartSec=5s
+WorkingDirectory=${path.dirname(process.execPath)}
 ExecStart=${process.execPath}
-LimitNOFILE=1048576
 
 [Install]
 WantedBy=multi-user.target
