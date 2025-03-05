@@ -34,7 +34,8 @@ const dirname = sea.isSea() ? path.dirname(process.execPath) : __dirname
   // 监控配置文件，修改后立即更新清单并更新证书信息
   const configFile = path.join(dirname, 'config.json5')
   watchConfig(configFile, async (config: Config) => {
-    data = await checkAll(config.hosts, {timeout: 5000})
+    hosts = config.hosts
+    data = await checkAll(hosts, {timeout: 5000})
   })
 
   const fastify = Fastify({
@@ -64,7 +65,8 @@ const dirname = sea.isSea() ? path.dirname(process.execPath) : __dirname
   })
 
   const config = await readConfig(configFile)
-  data = await checkAll(config.hosts, {timeout: 5000})
+  hosts = config.hosts;
+  data = await checkAll(hosts, {timeout: 5000})
 
   // 定时器，每一个整点检查一次证书信息
   const offset = new Date().getTime() % 3600

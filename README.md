@@ -61,6 +61,8 @@
 
 ## 安装
 
+可结合视频 [CertWatcherLite配置与Systemd部署演示](https://www.bilibili.com/video/BV1GG9dYDEsQ/) 阅读下面的说明
+
 1. 在服务器上创建一个目录，将从 release 中下载的二进制文件放到该目录下
 2. 给该文件赋予执行权限
    ```bash
@@ -178,6 +180,8 @@ hosts 是一个站点对象数组，每个站点对象包含以下属性：
 3. 通过 `postject` 制作 `dist/cwl` 文件。
 
 构建流程详见 `package.json` 中的 `scripts`
+
+[CertWatcherLite二进制可执行文件打包演示](https://www.bilibili.com/video/BV1TH9dYyECm)
 
 ## License
 本项目采用 MIT 许可证。在不违反本许可证条款的情况下，您可以自由地使用、复制、修改、合并、出版发行、散布、再授权和/或贩售本软件及该软件的副本。
