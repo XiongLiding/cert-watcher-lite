@@ -128,3 +128,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# idea
+.idea
+
+# 配置文件不要上传
+config.json5
+cwl.service

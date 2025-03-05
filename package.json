@@ -1,0 +1,31 @@
+{
+  "name": "cert-watcher-lite",
+  "version": "1.0.0",
+  "description": "一个极简的网站安全证书过期监测工具",
+  "main": "index.cts",
+  "scripts": {
+    "build:js": "esbuild --bundle --minify --platform=node --outfile=dist/cwl.js index.cts",
+    "build:blob": "node --experimental-sea-config sea-config.json",
+    "build:binary": "cd dist && cp $(command -v node) cwl && postject cwl NODE_SEA_BLOB cwl.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2",
+    "build": "pnpm run build:js && pnpm run build:blob && pnpm run build:binary",
+    "lint": "standard --ignore node_modules",
+    "dev": "node index.cts"
+  },
+  "keywords": [],
+  "author": "XiongLiding",
+  "license": "MIT",
+  "packageManager": "pnpm@10.4.1",
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "fastify": "^5.2.1",
+    "json5": "^2.2.3",
+    "ssl-checker": "^2.0.10"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.8",
+    "esbuild": "^0.25.0",
+    "fastify-tsconfig": "^3.0.0",
+    "postject": "1.0.0-alpha.6",
+    "standard": "^17.1.2"
+  }
+}

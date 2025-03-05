@@ -1,0 +1,8 @@
+{
+  "main": "dist/cwl.js",
+  "output": "dist/cwl.blob",
+  "assets": {
+    "widget.html": "assets/widget.html",
+    "license": "LICENSE"
+  }
+}
