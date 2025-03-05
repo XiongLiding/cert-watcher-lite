@@ -4,13 +4,13 @@ const sea = require('node:sea')
 
 const Fastify = require('fastify')
 
-const {watchConfig, readConfig} = require('./src/config.mts')
+const {readConfig} = require('./src/config.mts')
 const {checkAll} = require('./src/checker.mts')
 const {init} = require('./src/init.mts')
 
 import type {FastifyReply, FastifyRequest} from 'fastify'
 import type {Cert} from './src/checker.mts'
-import type {Config, Host} from './src/config.mts'
+import type {Host} from './src/config.mts'
 
 // 需要监听的主机
 let hosts: Host[] = []
@@ -33,10 +33,6 @@ const dirname = sea.isSea() ? path.dirname(process.execPath) : __dirname
 
   // 监控配置文件，修改后立即更新清单并更新证书信息
   const configFile = path.join(dirname, 'config.json5')
-  watchConfig(configFile, async (config: Config) => {
-    hosts = config.hosts
-    data = await checkAll(hosts, {timeout: 5000})
-  })
 
   const fastify = Fastify({
     logger: true
