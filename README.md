@@ -172,14 +172,17 @@ hosts 是一个站点对象数组，每个站点对象包含以下属性：
 
 ### 发布构建
 
-执行 `pnpm run build` 进行构建，生成的可执行文件将位于 `dist` 目录中，默认脚本根据 Linux_x64 平台构建的。
+执行 `pnpm run build` 进行构建，生成的可执行文件将位于 `dist` 目录中，默认脚本根据 Linux_x64 平台构建。
 构建总共有三个步骤：
 
 1. 通过 `esbuild` 将代码合并成一个 `dist/cwl.js` 文件；
 2. 通过 `node --experimental-sea-config` 将 `dist/cwl.js` 文件加工成 `dist/cwl.blob` 文件；
-3. 通过 `postject` 制作 `dist/cwl` 文件。
+3. 通过 `postject` 制作可执行文件 `dist/cwl` 。
 
 构建流程详见 `package.json` 中的 `scripts`
+
+预构建的二进制文件基于 Node.JS 官方 v23.9.0 版本 linux 二进制包，理论上可在所有主流 x64 linux 系统运行。
+该二进制包在 Debian 12.9 构建，并在 Debian 12.9 和 Anolis OS 8.9 上通过了测试。
 
 [CertWatcherLite二进制可执行文件打包演示](https://www.bilibili.com/video/BV1TH9dYyECm)
 
