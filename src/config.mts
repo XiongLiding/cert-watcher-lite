@@ -21,8 +21,7 @@ export async function readConfig(path: string): Promise<Config> {
   return JSON5.parse(data)
 }
 
-export async function watchConfig(path: string, callback = (config: Config) => {
-}) {
+export async function watchConfig(path: string, callback: (config: Config) => void) {
   chokidar.watch(path, {
     ignoreInitial: true,
     awaitWriteFinish: { // 等待写入完成
